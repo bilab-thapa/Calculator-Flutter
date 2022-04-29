@@ -1,0 +1,270 @@
+import 'package:calculator/constants/color.dart';
+import 'package:flutter/material.dart';
+
+class Calculator extends StatefulWidget {
+  const Calculator({Key? key}) : super(key: key);
+
+  @override
+  State<Calculator> createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  int? first;
+  int? second;
+  String history = '';
+  String displayText = '';
+  String res = '';
+  String equation = '';
+
+  buttonPress(String buttonText) {
+    if (buttonText == 'C') {
+      displayText = '';
+      res = '';
+      equation = '';
+      first = 0;
+      second = 0;
+    } else if (buttonText == '+' ||
+        buttonText == '-' ||
+        buttonText == 'X' ||
+        buttonText == '/') {
+      first = int.parse(displayText);
+      res = '';
+      equation = buttonText;
+    } else if (buttonText == '=') {
+      second = int.parse(displayText);
+      if (equation == '+') {
+        res = (first! + second!).toString();
+      } else if (equation == '-') {
+        res = (first! - second!).toString();
+      } else if (equation == 'X') {
+        res = (first! * second!).toString();
+      } else if (equation == '/') {
+        res = (first! ~/ second!).toString();
+      }
+    } else {
+      res = int.parse(displayText + buttonText).toString();
+    }
+
+    setState(() {
+      displayText = res;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: MyColor.bg1,
+      appBar: AppBar(
+        backgroundColor: MyColor.bg1,
+        title: Text(
+          'Calculator',
+          style: TextStyle(fontSize: 40, color: MyColor.operators),
+        ),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Column(
+        children: [
+          //History Data Show Tab
+          Container(
+            padding: const EdgeInsets.only(right: 15),
+            width: double.infinity,
+            alignment: Alignment.bottomRight,
+            height: 100,
+            child: Text(
+              history,
+              style: const TextStyle(fontSize: 50, color: Colors.white54),
+            ),
+          ),
+
+          //Current Data Calculation Place
+          Container(
+            padding: const EdgeInsets.only(right: 15),
+            width: double.infinity,
+            alignment: Alignment.bottomRight,
+            height: 100,
+            child: Text(
+              res,
+              style: const TextStyle(fontSize: 50, color: Colors.white),
+            ),
+          ),
+          const SizedBox(height: 10),
+
+          //Keypad of Calculator
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    color: MyColor.bg2),
+                child: GridView.count(
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  crossAxisCount: 4,
+                  children: [
+                    //AC
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('C'),
+                      child: const Text('C'),
+                    ),
+
+                    //+/-
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('AC'),
+                      child: const Text('AC'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('<'),
+                      child: const Icon(Icons.backspace),
+                    ),
+
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('X'),
+                      child: const Text('X'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('9'),
+                      child: const Text('9'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('8'),
+                      child: const Text('8'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('7'),
+                      child: const Text('7'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('/'),
+                      child: const Text('/'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('6'),
+                      child: const Text('6'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('5'),
+                      child: const Text('5'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('4'),
+                      child: const Text('4'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      child: const Text('-'),
+                      onPressed: () => buttonPress('-'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('3'),
+                      child: const Text('3'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('2'),
+                      child: const Text('2'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('1'),
+                      child: const Text('1'),
+                    ),
+
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('+'),
+                      child: const Text('+'),
+                    ),
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('0'),
+                      child: const Text('0'),
+                    ),
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('.'),
+                      child: const Text('.'),
+                    ),
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: null,
+                      child: const Text(''),
+                    ),
+                    //
+                    ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      onPressed: () => buttonPress('='),
+                      child: const Text('='),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
