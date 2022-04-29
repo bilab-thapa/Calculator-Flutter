@@ -39,11 +39,11 @@ class _CalculatorState extends State<Calculator> {
     } else if (buttonText == '=') {
       second = double.parse(displayText);
       if (equation == '+') {
-        res = (first! + second!).toString();
+        res = (first! + second!).toStringAsFixed(0);
       } else if (equation == '-') {
-        res = (first! - second!).toString();
+        res = (first! - second!).toStringAsFixed(0);
       } else if (equation == 'X') {
-        res = (first! * second!).toString();
+        res = (first! * second!).toStringAsFixed(0);
       } else if (equation == '/') {
         res = (first! / second!).toStringAsFixed(6);
       }
@@ -52,6 +52,8 @@ class _CalculatorState extends State<Calculator> {
       if (res == '') {
         res = '0';
       }
+    } else if (buttonText == 'neg') {
+      res = (-1 * int.parse(displayText)).toString();
     } else if (buttonText == '.') {
       res = int.parse(displayText + buttonText).toString();
     } else {
@@ -306,10 +308,13 @@ class _CalculatorState extends State<Calculator> {
                       child: const Text('.'),
                     ),
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
-                      onPressed: null,
-                      child: const Text(''),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
+                      onPressed: () => buttonPress('neg'),
+                      child: const Text('+/-'),
                     ),
                     //
                     ElevatedButton(
