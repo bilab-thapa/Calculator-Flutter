@@ -9,8 +9,8 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  int? first;
-  int? second;
+  double? first;
+  double? second;
   String history = '';
   String displayText = '';
   String res = '';
@@ -23,15 +23,21 @@ class _CalculatorState extends State<Calculator> {
       equation = '';
       first = 0;
       second = 0;
+    } else if (buttonText == 'AC') {
+      displayText = '';
+      res = '';
+      equation = '';
+      first = 0;
+      second = 0;
     } else if (buttonText == '+' ||
         buttonText == '-' ||
         buttonText == 'X' ||
         buttonText == '/') {
-      first = int.parse(displayText);
+      first = double.parse(displayText);
       res = '';
       equation = buttonText;
     } else if (buttonText == '=') {
-      second = int.parse(displayText);
+      second = double.parse(displayText);
       if (equation == '+') {
         res = (first! + second!).toString();
       } else if (equation == '-') {
@@ -39,8 +45,15 @@ class _CalculatorState extends State<Calculator> {
       } else if (equation == 'X') {
         res = (first! * second!).toString();
       } else if (equation == '/') {
-        res = (first! ~/ second!).toString();
+        res = (first! / second!).toStringAsFixed(6);
       }
+    } else if (buttonText == '<') {
+      res = res.substring(0, res.length - 1);
+      if (res == '') {
+        res = '0';
+      }
+    } else if (buttonText == '.') {
+      res = int.parse(displayText + buttonText).toString();
     } else {
       res = int.parse(displayText + buttonText).toString();
     }
