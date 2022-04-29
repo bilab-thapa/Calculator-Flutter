@@ -68,10 +68,10 @@ class _CalculatorState extends State<Calculator> {
     return Scaffold(
       backgroundColor: MyColor.bg1,
       appBar: AppBar(
-        backgroundColor: MyColor.bg1,
-        title: Text(
+        backgroundColor: MyColor.bg2,
+        title: const Text(
           'Calculator',
-          style: TextStyle(fontSize: 40, color: MyColor.operators),
+          style: TextStyle(fontSize: 40),
         ),
         centerTitle: true,
         elevation: 0,
@@ -121,140 +121,187 @@ class _CalculatorState extends State<Calculator> {
                   children: [
                     //AC
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.operators,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('C'),
                       child: const Text('C'),
                     ),
 
                     //+/-
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.operators,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('AC'),
                       child: const Text('AC'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.delete,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('<'),
                       child: const Icon(Icons.backspace),
                     ),
 
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.operators,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('X'),
                       child: const Text('X'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('9'),
                       child: const Text('9'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('8'),
                       child: const Text('8'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('7'),
                       child: const Text('7'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.operators,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('/'),
                       child: const Text('/'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('6'),
                       child: const Text('6'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('5'),
                       child: const Text('5'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('4'),
                       child: const Text('4'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.operators,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       child: const Text('-'),
                       onPressed: () => buttonPress('-'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('3'),
                       child: const Text('3'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('2'),
                       child: const Text('2'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('1'),
                       child: const Text('1'),
                     ),
 
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.operators,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('+'),
                       child: const Text('+'),
                     ),
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('0'),
                       child: const Text('0'),
                     ),
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.number,
+                          onPrimary: Colors.black,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('.'),
                       child: const Text('.'),
                     ),
@@ -266,8 +313,10 @@ class _CalculatorState extends State<Calculator> {
                     ),
                     //
                     ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(shape: const CircleBorder()),
+                      style: ElevatedButton.styleFrom(
+                          primary: MyColor.operators,
+                          textStyle: const TextStyle(fontSize: 24),
+                          shape: const CircleBorder()),
                       onPressed: () => buttonPress('='),
                       child: const Text('='),
                     ),
