@@ -55,7 +55,7 @@ class _CalculatorState extends State<Calculator> {
     } else if (buttonText == 'neg') {
       res = (-1 * int.parse(displayText)).toString();
     } else if (buttonText == '.') {
-      res = int.parse(displayText + buttonText).toString();
+      res = (displayText + buttonText).toString();
     } else {
       res = int.parse(displayText + buttonText).toString();
     }
