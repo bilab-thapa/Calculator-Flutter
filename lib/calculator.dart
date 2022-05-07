@@ -324,7 +324,7 @@ class _CalculatorState extends State<Calculator> {
                       //
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.red.shade400,
+                            primary: MyColor.delete,
                             textStyle: const TextStyle(fontSize: 24),
                             shape: const CircleBorder()),
                         onPressed: () => buttonPress('='),
